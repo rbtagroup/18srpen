@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>RB TAXI – Výčetka</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>RB TAXI – Výčetka</h1>
+    <div id="themeToggle">🌓 Přepnout režim</div>
+  </header>
+  <main>
+    <form id="calcForm">
+      <label>👤 Řidič: <input type="text" id="driverName" placeholder="Jméno řidiče" required /></label>
+      <label>🕒 Typ směny:
+        <select id="shiftType">
+          <option value="den">Denní</option>
+          <option value="noc">Noční</option>
+          <option value="odpo">Odpolední</option>
+          <option value="pul">1/2 směna</option>
+        </select>
+      </label>
+      <label>🚗 Kilometry: <input type="number" id="km" required /></label>
+      <label>💰 Tržba: <input type="number" id="trzba" required /></label>
+      <label>🏁 Přístavné: <input type="number" id="pristavne" /></label>
+      <label>⛽ Palivo: <input type="number" id="palivo" /></label>
+      <label>🧽 Mytí: <input type="number" id="myti" /></label>
+      <label>💳 Kartou: <input type="number" id="kartou" /></label>
+      <label>🧾 Fakturou: <input type="number" id="fakturou" /></label>
+      <label>📦 Jiné: <input type="number" id="jine" /></label>
+
+      <div class="form-actions">
+        <button type="submit">📊 Vypočítat</button>
+        <button type="button" id="resetBtn">🔄 Reset</button>
+        <button type="button" id="pdfExport">📄 Uložit PDF</button>
+      </div>
+    </form>
+
+    <section id="output" class="hidden"></section>
+    <section id="history" class="hidden"></section>
+  </main>
+</body>
+</html>

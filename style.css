@@ -1,0 +1,128 @@
+:root {
+  --gold: #d4af37;
+  --black: #111;
+  --white: #fff;
+  --gray: #f9f9f9;
+  --error: #e74c3c;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--gray);
+  color: var(--black);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background: #121212;
+  color: var(--white);
+}
+
+header {
+  background: var(--black);
+  color: var(--gold);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow);
+}
+
+#themeToggle {
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: var(--white);
+  opacity: 0.8;
+}
+
+main {
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+form {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+body.dark-mode form {
+  background: #1e1e1e;
+}
+
+label {
+  display: block;
+  margin: 0.8rem 0;
+  font-weight: 500;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.2rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #fff;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background: #2a2a2a;
+  color: var(--white);
+  border: 1px solid #444;
+}
+
+button {
+  margin: 0.5rem 0.25rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  background: var(--gold);
+  color: var(--black);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#output, #history {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+body.dark-mode #output,
+body.dark-mode #history {
+  background: #1e1e1e;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
