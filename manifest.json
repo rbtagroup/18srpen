@@ -1,7 +1,7 @@
 {
-  "name": "RB TAXI \u2013 V\u00fd\u010detka",
+  "name": "RB TAXI – Výčetka",
   "short_name": "RB TAXI",
-  "start_url": "index.html",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#FFD700",
   "theme_color": "#FFD700",
@@ -14,11 +14,6 @@
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-1024.png",
-      "sizes": "1024x1024",
       "type": "image/png"
     }
   ]
