@@ -915,3 +915,83 @@ body.light-mode button:disabled {
 /* === BLOCK SPACING FIX (v20) === */
 form { margin-bottom: 28px !important; }
 #output { margin-top: 28px !important; }
+
+
+/* === V21: MOBILE-OPTIMIZED "NEO NOIR" + ACCESSIBLE CONTRAST === */
+
+/* 0) Mobile UX foundations */
+html { -webkit-text-size-adjust: 100%; }
+body { -webkit-tap-highlight-color: transparent; }
+button, .btn { min-height: 48px !important; min-width: 44px !important; }
+input, select, textarea { min-height: 44px !important; }
+:focus-visible { outline: 2px solid rgba(99,102,241,.9); outline-offset: 2px; }
+
+/* Safe-area support (iOS notch) */
+@supports(padding: max(0px)) {
+  body { padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
+  footer, .actions { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+}
+
+/* Reduce motion for sensitive users */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* 1) Typography scale using clamp for mobile→desktop */
+:root {
+  --fs-base: clamp(14px, 1.6vw, 16px);
+  --fs-key: clamp(14px, 1.5vw, 16px);
+  --fs-val: clamp(15px, 1.8vw, 18px);
+  --fs-total: clamp(16px, 2vw, 20px);
+}
+#output .row .key { font-size: var(--fs-key) !important; }
+#output .row .val { font-size: var(--fs-val) !important; }
+.row.accent-grand .val { font-size: var(--fs-total) !important; }
+
+/* 2) High-contrast chips (replace pale yellow) */
+/* Odevzdání – from yellow to AMBER with dark text */
+.row.accent-odev {
+  background: linear-gradient(180deg, #f59e0b, #d97706) !important; /* amber 500→600 */
+  border: 1px solid #b45309 !important; /* amber 700 */
+  color: #111 !important;
+}
+.row.accent-odev .val { color: #111 !important; text-shadow: none !important; }
+
+/* Výplata – emerald, keep white text for contrast */
+.row.accent-pay {
+  background: linear-gradient(180deg, #10b981, #059669) !important;
+  border: 1px solid #047857 !important;
+  color: #ffffff !important;
+}
+.row.accent-pay .val { color: #ffffff !important; }
+
+/* Doplatek – ruby, white text */
+.row.accent-doplatek {
+  background: linear-gradient(180deg, #ef4444, #b91c1c) !important;
+  border: 1px solid #7f1d1d !important;
+  color: #ffffff !important;
+}
+.row.accent-doplatek .val { color: #ffffff !important; }
+
+/* Grand total – better readability: dark card with gold border */
+.row.accent-grand {
+  background: linear-gradient(180deg, #0f172a, #0b1224) !important; /* slate/indigo dark */
+  border: 2px solid #d4af37 !important; /* gold border */
+  color: #fef3c7 !important;            /* warm light text */
+  box-shadow: 0 6px 22px rgba(212,175,55,.25) !important;
+}
+.row.accent-grand .key::before { content: "👑"; margin-right: 6px; }
+.row.accent-grand .val { color: #fde68a !important; text-shadow: 0 1px 1px rgba(0,0,0,.35); }
+
+/* 3) Surfaces – Neo Noir (dark) with improved contrast */
+@media (prefers-color-scheme: dark) {
+  body { background: radial-gradient(1200px 600px at 30% -20%, rgba(255,215,0,.08), transparent), #0b0b10 !important; }
+  #output { background: #121216 !important; border: 1px solid rgba(255,255,255,.08) !important; }
+  form { background: #14141a !important; border: 1px solid rgba(255,255,255,.08) !important; }
+  #output .row .key, #output .row .val { color: #f1f5f9 !important; }
+}
+
+/* 4) Light mode readability stays solid */
+body.light-mode #output { background:#ffffff !important; border:1px solid #e5e7eb !important; }
+body.light-mode #output .row .key, 
+body.light-mode #output .row .val { color:#0b0b0c !important; }
