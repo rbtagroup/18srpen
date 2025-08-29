@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rb-taxi-cache-v13_hardfix_20250821103429_btn20250828211916\_v9_20250828212343";
+\1rb-taxi-vycetka-ultra-v4\2;
 const ASSETS = [
   'index.html',
   'style.css',
