@@ -182,3 +182,189 @@ button .icon{ margin-right:8px; }
 .row.accent-grand { padding: 6px 10px !important; border-radius: 8px !important; margin-top: 6px !important; }
 .row.accent-grand .key { font-size: 14px !important; font-weight: 700 !important; }
 .row.accent-grand .val { font-size: 16px !important; font-weight: 800 !important; }
+
+
+
+/* === LUX OVERHAUL 2025-08-29 (visual-only) === */
+/* No functional changes — purely aesthetic refinements. */
+
+/* 1) Global polish */
+:root{
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --ring: 0 0 0 3px rgba(212,175,55,.25);
+  --ring-strong: 0 0 0 3px rgba(59,130,246,.35);
+}
+
+/* Improve base text contrast and spacing */
+html, body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: .01em;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* 2) Cards & sections */
+form, #output, #history, .card, .panel{
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+/* Section separators inside output */
+#output .row{ 
+  padding: 10px 0; 
+  border-top: 1px dashed rgba(255,255,255,.12); 
+}
+body.light-mode #output .row{
+  border-top-color: rgba(0,0,0,.08);
+}
+
+/* 3) Inputs */
+input, select, textarea{
+  border-radius: var(--radius-md);
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.03);
+  transition: border-color .2s, box-shadow .2s, background .2s, transform .06s;
+}
+input:focus, select:focus, textarea:focus{
+  border-color: var(--gold-2);
+  box-shadow: var(--ring);
+  outline: none;
+}
+input:hover, select:hover, textarea:hover{
+  transform: translateY(-1px);
+}
+
+/* Placeholder visibility */
+::placeholder{ color: rgba(255,255,255,.55); }
+body.light-mode ::placeholder{ color: rgba(0,0,0,.45); }
+
+/* Numeric input alignment (better polish for totals) */
+input[type="number"]{ text-align: right; font-variant-numeric: tabular-nums; }
+
+/* 4) Buttons */
+button, .btn{
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  letter-spacing: .02em;
+  border: 1px solid transparent;
+  transform: translateZ(0);
+  transition: transform .06s ease, box-shadow .2s ease, background .2s, border-color .2s;
+}
+
+button.primary, #calculateBtn, #shareBtn, #pdfExport{
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  color: #1b1b1b;
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+  box-shadow: 0 10px 24px rgba(212,175,55,.25);
+}
+button.primary:hover, #calculateBtn:hover, #shareBtn:hover, #pdfExport:hover{
+  filter: saturate(1.05) brightness(1.02);
+  transform: translateY(-1px);
+}
+button.primary:active, #calculateBtn:active, #shareBtn:active, #pdfExport:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(212,175,55,.3);
+}
+
+button.secondary, #resetBtn, #newShiftBtn{
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.14);
+}
+body.light-mode button.secondary, body.light-mode #resetBtn, body.light-mode #newShiftBtn{
+  background: rgba(0,0,0,.04);
+  border-color: rgba(0,0,0,.12);
+}
+button.secondary:hover, #resetBtn:hover, #newShiftBtn:hover{ transform: translateY(-1px); }
+
+/* Icon spacing */
+button .icon, .btn .icon{ margin-right: 8px; }
+
+/* 5) Headers / brand */
+header{
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.brand-icon{
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.45);
+}
+.brand-title{
+  font-size: 22px;
+  letter-spacing: .02em;
+  background-image: linear-gradient(90deg, var(--gold-2), var(--gold-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 6) Output key/value styling */
+#output .key{
+  color: var(--muted);
+  display: flex; 
+  align-items: center;
+  gap: 8px;
+}
+#output .value{
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+#output .accent{
+  color: var(--gold-2);
+  text-shadow: 0 0 12px rgba(212,175,55,.25);
+}
+/* High-contrast totals */
+#output .total, #output .grand-total{
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(212,175,55,.08));
+  border: 1px solid rgba(212,175,55,.28);
+  box-shadow: 0 10px 28px rgba(212,175,55,.18) inset;
+}
+
+/* 7) Light mode improvements */
+body.light-mode{
+  --card-bg: rgba(255,255,255,.9);
+  --card-border: rgba(0,0,0,.08);
+  --field-bg: rgba(0,0,0,.03);
+  --field-border: rgba(0,0,0,.12);
+}
+body.light-mode header{ border-bottom-color: rgba(0,0,0,.08); }
+body.light-mode #output .accent{
+  color: #9a7b2f;
+  text-shadow: none;
+}
+body.light-mode #output .total, 
+body.light-mode #output .grand-total{
+  background: linear-gradient(180deg, rgba(212,175,55,.10), rgba(212,175,55,.04));
+  border-color: rgba(212,175,55,.28);
+  box-shadow: none;
+}
+
+/* 8) Focus visibility (accessibility) */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline: none;
+  box-shadow: var(--ring-strong);
+  border-color: var(--blue);
+}
+
+/* 9) Micro-interactions */
+.card:hover, form:hover, #output:hover{
+  transform: translateY(-1px);
+  transition: transform .12s ease;
+}
+
+/* 10) Fine-tune small screens */
+@media (max-width: 420px){
+  .brand-title{ font-size: 20px; }
+  label{ font-size: 14px; }
+  button, .btn{ font-size: 15px; }
+}
