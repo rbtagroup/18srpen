@@ -995,3 +995,194 @@ input, select, textarea { min-height: 44px !important; }
 body.light-mode #output { background:#ffffff !important; border:1px solid #e5e7eb !important; }
 body.light-mode #output .row .key, 
 body.light-mode #output .row .val { color:#0b0b0c !important; }
+
+
+/* === V22: GLASS-LIGHT REDESIGN (iOS/Android premium style) — 20250829050533 === */
+
+/* Background: subtle gradient for light mode */
+body.light-mode {
+  background: linear-gradient(180deg,#f9fafb,#f3f4f6) !important;
+}
+@media (prefers-color-scheme: light) {
+  body:not(.light-mode) {
+    background: linear-gradient(180deg,#f9fafb,#f3f4f6) !important;
+  }
+}
+
+/* Panels as frosted glass */
+body.light-mode header,
+body.light-mode form,
+body.light-mode #output {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05) !important;
+}
+@media (prefers-color-scheme: light) {
+  body:not(.light-mode) header,
+  body:not(.light-mode) form,
+  body:not(.light-mode) #output {
+    background: rgba(255,255,255,0.85) !important;
+    border: 1px solid rgba(0,0,0,0.06) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05) !important;
+    backdrop-filter: blur(14px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+  }
+}
+
+/* Typography & row text in light */
+body.light-mode #output .row .key,
+body.light-mode #output .row .val { color:#0b0b0c !important; }
+@media (prefers-color-scheme: light) {
+  body:not(.light-mode) #output .row .key,
+  body:not(.light-mode) #output .row .val { color:#0b0b0c !important; }
+}
+
+/* Accent rows as inline badges instead of full bars */
+body.light-mode #output .row.accent-odev,
+body.light-mode #output .row.accent-pay,
+body.light-mode #output .row.accent-doplatek,
+body.light-mode #output .row.accent-grand {
+  background: transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  padding:6px 10px !important;
+}
+body.light-mode #output .row.accent-odev .val,
+body.light-mode #output .row.accent-pay .val,
+body.light-mode #output .row.accent-doplatek .val,
+body.light-mode #output .row.accent-grand .val {
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:700 !important;
+  font-size:15px !important;
+}
+
+body.light-mode .row.accent-odev .val { background:#fef3c7; color:#92400e !important; }
+body.light-mode .row.accent-pay .val { background:#d1fae5; color:#065f46 !important; }
+body.light-mode .row.accent-doplatek .val { background:#fee2e2; color:#991b1b !important; }
+body.light-mode .row.accent-grand .val {
+  background:linear-gradient(90deg,#facc15,#f59e0b) !important;
+  color:#111 !important; font-weight:800 !important; box-shadow:0 0 8px rgba(250,204,21,.35);
+}
+
+/* Buttons */
+body.light-mode button {
+  border-radius:999px !important; font-weight:600 !important; min-height:48px !important;
+}
+body.light-mode #shareImgBtn {
+  background:linear-gradient(135deg,#0ea5e9,#3b82f6) !important; color:#fff !important; border:none !important;
+  box-shadow: 0 4px 12px rgba(59,130,246,.35) !important;
+}
+body.light-mode button:not(#shareImgBtn) {
+  background:#f3f4f6 !important; border:1px solid #d1d5db !important; color:#111 !important;
+}
+body.light-mode button:disabled {
+  background:#f9fafb !important; color:#9ca3af !important; border:1px solid #e5e7eb !important; box-shadow:none !important;
+}
+
+/* Extra spacing between blocks */
+form { margin-bottom: 28px !important; }
+#output { margin-top: 28px !important; }
+
+
+/* === V23: EXPLICIT DARK MODE (Neo Noir) + proper theming split === */
+/* Dark mode via body.dark-mode + fallback to system dark if no toggle */
+body.dark-mode {
+  background: radial-gradient(1200px 600px at 30% -20%, rgba(255,215,0,.06), transparent), #0b0b10 !important;
+  color: #f1f5f9 !important;
+}
+@media (prefers-color-scheme: dark){
+  body:not(.light-mode):not(.dark-mode) {
+    background: radial-gradient(1200px 600px at 30% -20%, rgba(255,215,0,.06), transparent), #0b0b10 !important;
+    color: #f1f5f9 !important;
+  }
+}
+
+/* Surfaces */
+body.dark-mode header,
+body.dark-mode form,
+body.dark-mode #output {
+  background: #121216 !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25) !important;
+}
+@media (prefers-color-scheme: dark){
+  body:not(.light-mode):not(.dark-mode) header,
+  body:not(.light-mode):not(.dark-mode) form,
+  body:not(.light-mode):not(.dark-mode) #output {
+    background: #121216 !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,.25) !important;
+  }
+}
+
+/* Text */
+body.dark-mode #output .row .key,
+body.dark-mode #output .row .val { color: #f1f5f9 !important; }
+@media (prefers-color-scheme: dark){
+  body:not(.light-mode):not(.dark-mode) #output .row .key,
+  body:not(.light-mode):not(.dark-mode) #output .row .val { color: #f1f5f9 !important; }
+}
+
+/* Accent badges in dark */
+body.dark-mode .row.accent-odev .val { background:#f59e0b !important; color:#0b0b0c !important; }
+body.dark-mode .row.accent-pay .val { background:#059669 !important; color:#ffffff !important; }
+body.dark-mode .row.accent-doplatek .val { background:#b91c1c !important; color:#ffffff !important; }
+body.dark-mode .row.accent-grand .val {
+  background: linear-gradient(90deg,#facc15,#f59e0b) !important;
+  color:#111 !important; font-weight:800 !important;
+  box-shadow: 0 0 8px rgba(250,204,21,.35);
+}
+@media (prefers-color-scheme: dark){
+  body:not(.light-mode):not(.dark-mode) .row.accent-odev .val { background:#f59e0b !important; color:#0b0b0c !important; }
+  body:not(.light-mode):not(.dark-mode) .row.accent-pay .val { background:#059669 !important; color:#ffffff !important; }
+  body:not(.light-mode):not(.dark-mode) .row.accent-doplatek .val { background:#b91c1c !important; color:#ffffff !important; }
+  body:not(.light-mode):not(.dark-mode) .row.accent-grand .val {
+    background: linear-gradient(90deg,#facc15,#f59e0b) !important;
+    color:#111 !important; font-weight:800 !important;
+    box-shadow: 0 0 8px rgba(250,204,21,.35);
+  }
+}
+
+/* Buttons in dark */
+body.dark-mode button {
+  background:#1f2937 !important;
+  color:#f9fafb !important;
+  border:1px solid #374151 !important;
+  border-radius: 999px !important;
+  min-height: 48px !important;
+}
+body.dark-mode #shareImgBtn {
+  background: linear-gradient(135deg,#2563eb,#1d4ed8) !important;
+  color:#fff !important;
+  border:none !important;
+  box-shadow: 0 4px 14px rgba(29,78,216,.35) !important;
+}
+body.dark-mode button:disabled {
+  background:#111827 !important; color:#9ca3af !important; border-color:#1f2937 !important; box-shadow:none !important;
+}
+@media (prefers-color-scheme: dark){
+  body:not(.light-mode):not(.dark-mode) button {
+    background:#1f2937 !important;
+    color:#f9fafb !important;
+    border:1px solid #374151 !important;
+    border-radius: 999px !important;
+    min-height: 48px !important;
+  }
+  body:not(.light-mode):not(.dark-mode) #shareImgBtn {
+    background: linear-gradient(135deg,#2563eb,#1d4ed8) !important;
+    color:#fff !important;
+    border:none !important;
+    box-shadow: 0 4px 14px rgba(29,78,216,.35) !important;
+  }
+  body:not(.light-mode):not(.dark-mode) button:disabled {
+    background:#111827 !important; color:#9ca3af !important; border-color:#1f2937 !important; box-shadow:none !important;
+  }
+}
