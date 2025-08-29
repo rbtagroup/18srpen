@@ -67,36 +67,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (saved === "light") document.body.classList.add("light-mode");
     updateThemeLabel();
     if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
+      const _toggleTheme = () => {
         document.body.classList.toggle("light-mode");
         localStorage.setItem(key, document.body.classList.contains("light-mode") ? "light" : "dark");
         updateThemeLabel();
         // history removed
-      
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+      });
     }
   })();
 
   function updateThemeLabel(){
-    const light = document.body.classList.contains("light-mode");
-    const ico = light ? '#icon-sun' : '#icon-moon';
-    const label = light ? 'Světlý režim' : 'Tmavý režim';
-    const el = document.getElementById("themeToggle");
-    if (el) el.innerHTML = '<svg class="icon"><use href="'+ico+'"/></svg> ' + label;
-  }
+  const light = document.body.classList.contains('light-mode');
+  const label = light ? 'Světlý režim' : 'Tmavý režim';
+  const emo = light ? '🌞' : '🌙';
+  const el = document.getElementById('themeToggle');
+  if (el) el.innerHTML = '<span class="ico">'+emo+'</span> ' + label;
+}
 
   // === HISTORY REMOVED ===
 
@@ -176,59 +162,17 @@ try {
     if (t.startsWith('Výplata')) k.parentElement?.classList.add('accent-pay');
     if (t.startsWith('Doplatek řidiče na KM')) k.parentElement?.classList.add('accent-doplatek');
     if (t.startsWith('K odevzdání celkem')) k.parentElement?.classList.add('accent-grand');
-  
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+  });
 } catch(_e) {}
 
       output.classList.remove("hidden");
       if (actions) actions.classList.remove("hidden");
 
       try {
-        pushHistory({driver, shift, km, trzba, pristavne, palivo, myti, kartou, fakturou, jine, kOdevzdani, vyplata, datum
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+        pushHistory({driver, shift, km, trzba, pristavne, palivo, myti, kartou, fakturou, jine, kOdevzdani, vyplata, datum});
         renderHistory();
       } catch(_e){}
-    
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
     });
-  }
-
-});
   }
 
   // === BUTTONS ===
@@ -243,58 +187,16 @@ try {
       // ensure visible and up to date before capture
       if (typeof computeAndRender === 'function') { try { computeAndRender(); } catch(_e){} }
       const scale = Math.max(2, Math.floor(window.devicePixelRatio || 2));
-      const canvas = await html2canvas(output, { scale, backgroundColor: null, useCORS: true 
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+      const canvas = await html2canvas(output, { scale, backgroundColor: null, useCORS: true });
       await new Promise((resolve, reject) => {
         canvas.toBlob(async (blob) => {
           try {
             if (!blob) return reject(new Error("Nepodařilo se vytvořit obrázek."));
-            const file = new File([blob], "vypocet-vycetky.png", { type: "image/png" 
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+            const file = new File([blob], "vypocet-vycetky.png", { type: "image/png" });
 
             // 1) Native share with file (https / supported UA)
             if (navigator.canShare && navigator.canShare({ files: [file] })) {
-              await navigator.share({ files: [file], title: "Výčetka řidiče", text: "Výčetka řidiče (PNG)" 
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+              await navigator.share({ files: [file], title: "Výčetka řidiče", text: "Výčetka řidiče (PNG)" });
               return resolve();
             }
 
@@ -321,39 +223,11 @@ try {
             reject(err);
           }
         }, "image/png");
-      
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+      });
     } catch (e) {
       alert("Sdílení obrázku selhalo: " + (e && e.message ? e.message : e));
     }
-  
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+  });
 })();
 
   if (resetBtn) resetBtn.addEventListener("click", () => {
@@ -362,21 +236,7 @@ try {
     if (keepName) document.getElementById("driverName").value = keepName;
     output?.classList.add("hidden");
     actions?.classList.add("hidden");
-  
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+  });
 
   if (newShiftBtn) newShiftBtn.addEventListener("click", () => {
     const keepName = document.getElementById("driverName")?.value || "";
@@ -386,42 +246,14 @@ try {
     if (note) note.value = "";
     output?.classList.add("hidden");
     actions?.classList.add("hidden");
-  
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+  });
 
   if (shareBtn) shareBtn.addEventListener("click", async () => {
     try {
       const text = (output && !output.classList.contains("hidden")) ? output.innerText.trim() : "";
       if (!text) { alert("Nejprve vypočítejte výčetku."); return; }
       if (navigator.share) {
-        await navigator.share({ title: "Výčetka řidiče", text 
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+        await navigator.share({ title: "Výčetka řidiče", text });
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(text);
         alert("Zkopírováno do schránky.");
@@ -434,21 +266,7 @@ try {
     } catch(e) {
       alert("Sdílení selhalo: " + (e && e.message ? e.message : e));
     }
-  
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+  });
 
   if (pdfBtn) pdfBtn.addEventListener("click", () => {
     const node = output;
@@ -457,21 +275,7 @@ try {
       const img = canvas.toDataURL("image/png");
       const { jsPDF } = window.jspdf || {};
       if (!jsPDF) { alert("Chybí jsPDF knihovna."); return; }
-      const pdf = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4" 
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+      const pdf = new jsPDF({ orientation: "portrait", unit: "pt", format: "a4" });
       const pageWidth = pdf.internal.pageSize.getWidth();
       const margin = 28;
       const w = pageWidth - margin*2;
@@ -479,54 +283,12 @@ try {
       pdf.addImage(img, "PNG", margin, margin, w, h, undefined, "FAST");
       pdf.save("RB-TAXI-vycetka.pdf");
     }).catch(e => alert("Export do PDF selhal: " + (e && e.message ? e.message : e)));
-  
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
-});
+  });
 
   // === SERVICE WORKER (https only) ===
   if ((location.protocol.startsWith("http")) && "serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("service-worker.js?v=v13_hardfix_20250821103429").catch(console.warn);
-    
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
     });
   }
-
-});
-  }
-
-  // Theme toggle improved with emoji + text
-  const themeToggle = document.getElementById("themeToggle");
-  if(themeToggle){
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-      if(document.body.classList.contains("light-mode")){
-        themeToggle.innerHTML = '<span class="ico">🌞</span> Světlý režim';
-      } else {
-        themeToggle.innerHTML = '<span class="ico">🌙</span> Tmavý režim';
-      }
-    });
-  }
-
 });
