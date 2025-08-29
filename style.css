@@ -184,1005 +184,240 @@ button .icon{ margin-right:8px; }
 .row.accent-grand .val { font-size: 16px !important; font-weight: 800 !important; }
 
 
-/* === TOP UI REFINEMENT === */
+/* ===== Imported FINAL MOBILE look ===== */
 
-/* Dark mode background */
-body {
-  background: linear-gradient(180deg, #0c0c0c, #181818) !important;
-  color: #fafafa !important;
-}
-
-/* Output card (výčetka) */
-#output {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 22px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.45);
-  padding: 20px;
-}
-
-/* Headline */
-#output .title {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  font-weight: 700;
-  background: linear-gradient(90deg, var(--gold), var(--gold-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* === ULTRA PREMIUM THEME (ported from FINAL MOBILE) === */
+:root{
+  --gold:#d4af37;
+  --gold-2:#f3d17a;
+  --blue:#3aa0ff;
+  --green:#19c37d;
+  --red:#ff4757;
+  --bg:#0b0b0d;
+  --bg-2:#121217;
+  --bg-3:#1a1b22;
+  --text:#e7e7ea;
+  --muted:#a4a6ae;
+  --card:#14151b;
+  --border:rgba(255,255,255,.08);
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+  --radius:16px;
+  --radius-lg:22px;
+  --btn-h:44px;
+  --fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;--fw-extrabold:800;
+  --font: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* Key rows */
-#output .row {
-  margin: 8px 0;
-  padding: 8px 12px;
-  border-radius: 12px;
-}
-
-/* Specific accents */
-.row.accent-odev { background: rgba(255, 215, 0, 0.15); border-left: 4px solid #ffd700; }
-.row.accent-pay { background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10b981; }
-.row.accent-doplatek { background: rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; }
-.row.accent-grand {
-  background: linear-gradient(90deg, #f3d17a, #d4af37);
-  border-left: 5px solid #ffd700;
-  box-shadow: 0 0 14px rgba(212,175,55,.6);
-}
-
-/* Values */
-#output .val {
-  text-align: right;
-  font-weight: 800;
-  font-size: 16px;
-}
-
-/* Grand total values bigger */
-.row.accent-grand .val {
-  font-size: 20px;
-  font-weight: 900;
-  color: #fff;
-}
-
-
-/* === TOP UI REFINEMENT (v10) === */
-
-/* Higher-contrast dark gradient background */
-body {
-  background: linear-gradient(180deg, #0b0b0b, #171717);
-  color: #fafafa;
-}
-
-/* Output card polish */
-#output {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 22px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.45);
-  padding: 20px;
-}
-
-/* Title with premium gradient */
-#output .title {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  font-weight: 700;
-  background: linear-gradient(90deg, var(--gold), var(--gold-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Rows */
-#output .row {
-  margin: 8px 0;
-  padding: 8px 12px;
-  border-radius: 12px;
-}
-
-/* Key/value defaults */
-#output .row .key { color: #f3f3f3; opacity: .95; }
-#output .row .val {
-  text-align: right;
-  font-weight: 800;
-  font-size: 16px;
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum" 1, "lnum" 1;
-}
-
-/* Accents */
-.row.accent-odev { background: rgba(255, 215, 0, 0.15); border-left: 4px solid #ffd700; }
-.row.accent-pay { background: rgba(16, 185, 129, 0.15); border-left: 4px solid #10b981; }
-.row.accent-doplatek { background: rgba(239, 68, 68, 0.15); border-left: 4px solid #ef4444; }
-.row.accent-grand {
-  background: linear-gradient(90deg, #f3d17a, #d4af37);
-  border-left: 5px solid #ffd700;
-  box-shadow: 0 0 14px rgba(212,175,55,.6);
-}
-
-/* Grand total bigger */
-.row.accent-grand .val {
-  font-size: 20px;
-  font-weight: 900;
-  color: #ffffff;
-}
-
-/* Subtle divider */
-#output .hr {
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.18), rgba(255,255,255,0));
-  margin: 10px 0;
-}
-
-
-/* === TOP UI REFINEMENT (v11 force override) === */
-
-body {
-  background: linear-gradient(180deg, #0a0a0a, #161616) !important;
-  color: #fafafa !important;
-}
-
-#output {
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.12) !important;
-  border-radius: 22px !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,.55) !important;
-  padding: 20px !important;
-}
-
-#output .title {
-  font-family: "Playfair Display", serif !important;
-  font-size: 26px !important;
-  font-weight: 700 !important;
-  background: linear-gradient(90deg, var(--gold), var(--gold-2)) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
-
-#output .row {
-  margin: 6px 0 !important;
-  padding: 8px 12px !important;
-  border-radius: 12px !important;
-}
-
-#output .row .key {
-  color: #f5f5f5 !important;
-  font-weight: 700 !important;
-}
-
-#output .row .val {
-  text-align: right !important;
-  font-weight: 800 !important;
-  font-size: 16px !important;
-  font-variant-numeric: tabular-nums !important;
-  font-feature-settings: "tnum" 1, "lnum" 1 !important;
-}
-
-/* Accents */
-.row.accent-odev { background: rgba(255, 215, 0, 0.18) !important; border-left: 4px solid #ffd700 !important; }
-.row.accent-pay { background: rgba(16, 185, 129, 0.18) !important; border-left: 4px solid #10b981 !important; }
-.row.accent-doplatek { background: rgba(239, 68, 68, 0.18) !important; border-left: 4px solid #ef4444 !important; }
-.row.accent-grand {
-  background: linear-gradient(90deg, #f3d17a, #d4af37) !important;
-  border-left: 5px solid #ffd700 !important;
-  box-shadow: 0 0 16px rgba(212,175,55,.7) !important;
-}
-
-.row.accent-grand .val {
-  font-size: 20px !important;
-  font-weight: 900 !important;
-  color: #ffffff !important;
-}
-
-#output .hr {
-  height: 1px !important;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.25), rgba(255,255,255,0)) !important;
-  margin: 10px 0 !important;
-}
-
-
-/* === TOP UI REFINEMENT (v11 FORCE) === */
-body {
-  background: linear-gradient(180deg, #0a0a0a, #151515) !important;
-  color: #fafafa !important;
-}
-#output {
-  background: rgba(255,255,255,.07) !important;
-  border: 1px solid rgba(255,255,255,.14) !important;
-  border-radius: 22px !important;
-  box-shadow: 0 10px 34px rgba(0,0,0,.5) !important;
-  padding: 20px !important;
-}
-#output .title {
-  font-family: "Playfair Display", serif !important;
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  background: linear-gradient(90deg, var(--gold), var(--gold-2)) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
-#output .row {
-  margin: 8px 0 !important;
-  padding: 8px 12px !important;
-  border-radius: 12px !important;
-}
-#output .row .key { color: #f3f3f3 !important; opacity: .96 !important; font-weight: 700 !important; }
-#output .row .val {
-  text-align: right !important;
-  font-weight: 800 !important;
-  font-size: 16px !important;
-  font-variant-numeric: tabular-nums !important;
-  font-feature-settings: "tnum" 1, "lnum" 1 !important;
-}
-.row.accent-odev { background: rgba(255, 215, 0, 0.16) !important; border-left: 4px solid #ffd700 !important; }
-.row.accent-pay { background: rgba(16,185,129,.16) !important; border-left: 4px solid #10b981 !important; }
-.row.accent-doplatek { background: rgba(239,68,68,.16) !important; border-left: 4px solid #ef4444 !important; }
-.row.accent-grand {
-  background: linear-gradient(90deg, #f3d17a, #d4af37) !important;
-  border-left: 5px solid #ffd700 !important;
-  box-shadow: 0 0 16px rgba(212,175,55,.65) !important;
-}
-.row.accent-grand .val { font-size: 20px !important; font-weight: 900 !important; color: #ffffff !important; }
-#output .hr {
-  height: 1px !important;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.2), rgba(255,255,255,0)) !important;
-  margin: 10px 0 !important;
-}
-
-
-/* === LIQUID GLASS THEME v13 === */
-body {
-  background: linear-gradient(135deg, #050505, #0d0d1a, #001f3f) !important;
-  background-attachment: fixed !important;
-  color: #fefefe !important;
-  font-family: Inter, sans-serif !important;
-}
-
-/* Skleněné panely */
-.card, #output, form {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 22px !important;
-  backdrop-filter: blur(20px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-  box-shadow: 0 8px 40px rgba(0,0,0,.6) !important;
-  overflow: hidden !important;
-}
-
-/* Řádky */
-#output .row {
-  padding: 10px 14px !important;
-  margin: 6px 0 !important;
-  border-radius: 14px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  transition: background .3s ease !important;
-}
-#output .row:hover {
-  background: rgba(255,255,255,0.05) !important;
-}
-
-/* Accent rows – liquid capsule */
-.row.accent-pay {
-  background: linear-gradient(135deg, #34d399, #059669) !important;
-  color: #fff !important;
-  box-shadow: 0 0 12px rgba(34,197,94,.6) !important;
-}
-.row.accent-doplatek {
-  background: linear-gradient(135deg, #ef4444, #991b1b) !important;
-  color: #fff !important;
-  box-shadow: 0 0 12px rgba(239,68,68,.6) !important;
-}
-.row.accent-grand {
-  background: linear-gradient(135deg, #facc15, #f59e0b, #b45309) !important;
-  color: #fff !important;
-  font-size: 20px !important;
-  font-weight: 900 !important;
-  box-shadow: 0 0 20px rgba(250,204,21,.8) !important;
-}
-
-
-/* === LIQUID GLASS THEME (v13) === */
-/* Dark premium background with subtle animated highlight */
-@keyframes lgBeam {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-html, body {
-  background: linear-gradient(135deg, #050507, #0b0b14, #071a30) !important;
-  background-size: 200% 200% !important;
-  animation: lgBeam 18s ease infinite;
-  color: #f7f7f7 !important;
-}
-
-/* Glass panels */
-header, form, #output {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  border-radius: 20px !important;
-  backdrop-filter: blur(16px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
-  box-shadow: 0 10px 40px rgba(0,0,0,.55) !important;
-}
-
-/* Title — premium serif with gold gradient */
-#output .title {
-  font-family: "Playfair Display", serif !important;
-  font-size: 22px !important;
-  font-weight: 700 !important;
-  background: linear-gradient(90deg, var(--gold), var(--gold-2)) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
-
-/* Rows — compact */
-#output .row {
-  margin: 6px 0 !important;
-  padding: 6px 10px !important;
-  border-radius: 12px !important;
-  transition: background .25s ease !important;
-}
-#output .row:hover { background: rgba(255,255,255,0.05) !important; }
-
-#output .row .key {
-  color: #f2f2f2 !important;
-  font-weight: 700 !important;
-  opacity: .98 !important;
-  font-size: 14px !important;
-}
-#output .row .val {
-  text-align: right !important;
-  font-weight: 800 !important;
-  font-size: 15px !important;
-  font-variant-numeric: tabular-nums !important;
-  font-feature-settings: "tnum" 1, "lnum" 1 !important;
-  letter-spacing: .15px !important;
-}
-
-/* Accent capsules (liquid gradients) */
-.row.accent-pay {
-  background: linear-gradient(135deg, #34d399, #059669) !important;
-  border-left: 4px solid rgba(255,255,255,.25) !important;
-  color: #fff !important;
-  box-shadow: 0 0 14px rgba(34,197,94,.55) !important;
-}
-.row.accent-odev {
-  background: linear-gradient(135deg, #fde047, #f59e0b) !important;
-  border-left: 4px solid rgba(255,255,255,.25) !important;
-  color: #2a2100 !important;
-  box-shadow: 0 0 14px rgba(245,158,11,.45) !important;
-}
-.row.accent-doplatek {
-  background: linear-gradient(135deg, #ef4444, #991b1b) !important;
-  border-left: 4px solid rgba(255,255,255,.25) !important;
-  color: #fff !important;
-  box-shadow: 0 0 14px rgba(239,68,68,.55) !important;
-}
-.row.accent-grand {
-  background: linear-gradient(135deg, #facc15, #f59e0b, #b45309) !important;
-  border-left: 5px solid #ffd700 !important;
-  color: #fff !important;
-  box-shadow: 0 0 22px rgba(250,204,21,.75) !important;
-}
-.row.accent-grand .val { font-size: 18px !important; font-weight: 900 !important; }
-
-/* Money color helpers with better contrast on dark */
-#output .money-blue { color: #60a5fa !important; }
-#output .money-green { color: #34d399 !important; }
-#output .money-red { color: #f87171 !important; }
-
-/* Buttons — liquid capsules */
-button {
-  height: 40px !important;
-  min-height: 40px !important;
-  padding: 0 16px !important;
-  border-radius: 999px !important;
-  background: linear-gradient(135deg, rgba(255,255,255,.2), rgba(255,255,255,.08)) !important;
-  border: 1px solid rgba(255,255,255,.28) !important;
-  color: #f7f7f7 !important;
-  font-weight: 800 !important;
-  letter-spacing: .2px !important;
-  backdrop-filter: blur(12px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
-  box-shadow: 0 10px 26px rgba(0,0,0,.45) !important;
-  transition: transform .12s ease, box-shadow .2s ease, filter .2s ease !important;
-}
-button:hover { filter: saturate(115%) !important; transform: translateY(-1px) !important; }
-button:active { transform: translateY(0) scale(.99) !important; }
-
-/* Share button slight highlight */
-#shareImgBtn {
-  background: linear-gradient(135deg, #0ea5e9, #3b82f6) !important;
-  border-color: rgba(255,255,255,.35) !important;
-}
-
-/* Header polish */
-header {
-  border-radius: 16px !important;
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.16) !important;
-}
-
-/* Divider beam */
-#output .hr {
-  height: 1px !important;
-  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.22), rgba(255,255,255,0)) !important;
-  margin: 8px 0 !important;
-}
-
-
-/* === LIQUID GLASS – LIGHT MODE READABILITY FIX (v14) === */
-/* Applies for system light mode and explicit body.light class */
 @media (prefers-color-scheme: light){
-  html, body { 
-    background: linear-gradient(180deg, #ffffff, #f7f7fa) !important; 
-    color: #0e0e0e !important; 
-  }
-  header, form, #output {
-    background: rgba(255,255,255,0.85) !important;
-    border: 1px solid rgba(0,0,0,0.08) !important;
-    border-radius: 20px !important;
-    backdrop-filter: blur(10px) saturate(120%) !important;
-    -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
-    box-shadow: 0 8px 30px rgba(0,0,0,.06) !important;
-  }
-  #output .title {
-    background: linear-gradient(90deg, #8a6b00, #d4af37) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    color: transparent !important;
-  }
-  #output .row .key { color:#222 !important; opacity: .95 !important; }
-  #output .row .val { color:#111 !important; }
-
-  /* Accent rows with high-contrast light palettes */
-  .row.accent-odev { background: #fff8d8 !important; border-left: 4px solid #c9a400 !important; color: #1a1400 !important; }
-  .row.accent-pay { background: #e8fff4 !important; border-left: 4px solid #059669 !important; color: #053e2f !important; }
-  .row.accent-doplatek { background: #ffecec !important; border-left: 4px solid #b91c1c !important; color: #5c0c0c !important; }
-  .row.accent-grand { 
-    background: linear-gradient(90deg, #fff3b0, #ffe38a) !important; 
-    border-left: 5px solid #c9a400 !important; 
-    box-shadow: 0 0 14px rgba(201,164,0,.20) !important;
-    color:#1a1400 !important;
-  }
-
-  /* Money helpers in light theme */
-  #output .money-blue { color: #1d4ed8 !important; }
-  #output .money-green { color: #047857 !important; }
-  #output .money-red { color: #b91c1c !important; }
-
-  /* Divider */
-  #output .hr { 
-    background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.12), rgba(0,0,0,0)) !important; 
-  }
-
-  /* Buttons in light */
-  button {
-    background: linear-gradient(135deg, #ffffff, #f3f4f6) !important;
-    border: 1px solid rgba(0,0,0,.12) !important;
-    color: #111 !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,.08) !important;
-  }
-  #shareImgBtn {
-    background: linear-gradient(135deg, #0ea5e9, #3b82f6) !important;
-    color: #fff !important;
-    border-color: rgba(0,0,0,.15) !important;
+  :root{
+    --bg:#f7f7fb;
+    --bg-2:#ffffff;
+    --bg-3:#f2f3f7;
+    --text:#1b1d22;
+    --muted:#525560;
+    --card:#ffffff;
+    --border:rgba(0,0,0,.08);
+    --shadow:0 8px 22px rgba(0,0,0,.08);
   }
 }
 
-/* Explicit toggle support: body.light enforces the same palette */
-body.light, body.light * {
-  /* Avoid accidentally inheriting dark contrasts */
-}
-body.light {
-  background: linear-gradient(180deg, #ffffff, #f7f7fa) !important; 
-  color: #0e0e0e !important; 
-}
-body.light header,
-body.light form,
-body.light #output {
-  background: rgba(255,255,255,0.85) !important;
-  border: 1px solid rgba(0,0,0,0.08) !important;
-  border-radius: 20px !important;
-  backdrop-filter: blur(10px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(10px) saturate(120%) !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,.06) !important;
-}
-body.light #output .title {
-  background: linear-gradient(90deg, #8a6b00, #d4af37) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
-body.light #output .row .key { color:#222 !important; opacity:.95 !important; }
-body.light #output .row .val { color:#111 !important; }
-body.light .row.accent-odev { background: #fff8d8 !important; border-left: 4px solid #c9a400 !important; color: #1a1400 !important; }
-body.light .row.accent-pay { background: #e8fff4 !important; border-left: 4px solid #059669 !important; color: #053e2f !important; }
-body.light .row.accent-doplatek { background: #ffecec !important; border-left: 4px solid #b91c1c !important; color: #5c0c0c !important; }
-body.light .row.accent-grand { 
-  background: linear-gradient(90deg, #fff3b0, #ffe38a) !important; 
-  border-left: 5px solid #c9a400 !important; 
-  box-shadow: 0 0 14px rgba(201,164,0,.20) !important;
-  color:#1a1400 !important;
-}
-body.light #output .money-blue { color: #1d4ed8 !important; }
-body.light #output .money-green { color: #047857 !important; }
-body.light #output .money-red { color: #b91c1c !important; }
-body.light #output .hr { 
-  background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.12), rgba(0,0,0,0)) !important; 
-}
-body.light button {
-  background: linear-gradient(135deg, #ffffff, #f3f4f6) !important;
-  border: 1px solid rgba(0,0,0,.12) !important;
-  color: #111 !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,.08) !important;
-}
-body.light #shareImgBtn {
-  background: linear-gradient(135deg, #0ea5e9, #3b82f6) !important;
-  color: #fff !important;
-  border-color: rgba(0,0,0,.15) !important;
+body{ background: radial-gradient(1200px 800px at 70% -10%, rgba(212,175,55,.12), transparent 40%) , var(--bg); color:var(--text); font-family:var(--font); -webkit-font-smoothing:antialiased; margin:0; }
+
+/* Containers */
+.container, #app, main{
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 16px;
 }
 
-
-/* === LIGHT MODE FORM FIX (v15) === */
-@media (prefers-color-scheme: light) {
-  body.light, body {
-    background: linear-gradient(180deg, #fafafa, #f0f0f0) !important;
-    color: #111 !important;
-  }
-
-  form {
-    background: rgba(255,255,255,0.9) !important;
-    border: 1px solid rgba(0,0,0,0.08) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 4px 18px rgba(0,0,0,.08) !important;
-    padding: 20px !important;
-  }
-
-  input, select, textarea {
-    background: rgba(255,255,255,0.95) !important;
-    border: 1px solid rgba(0,0,0,0.12) !important;
-    border-radius: 10px !important;
-    padding: 10px 12px !important;
-    font-size: 15px !important;
-    color: #111 !important;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.05) !important;
-  }
-  input::placeholder, textarea::placeholder {
-    color: #555 !important;
-  }
+/* Cards */
+.section, .card, .panel, .block, #output, #actions, .metrics{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin: 14px 0;
 }
 
+/* Headings */
+h1,h2,h3{ letter-spacing:.2px; margin:0 0 8px }
+h1{ font-size:24px; font-weight:var(--fw-extrabold) }
+h2{ font-size:18px; font-weight:var(--fw-bold) }
+label{ font-weight:var(--fw-medium); color:var(--muted) }
 
-/* === THEME COMPAT LAYER (v16) === */
-/* App uses body.light-mode class. Mirror all body.light rules to .light-mode. */
-
-/* Dark inputs polish (when NOT in light mode) */
-body:not(.light-mode) input,
-body:not(.light-mode) select,
-body:not(.light-mode) textarea {
-  background: rgba(255,255,255,0.08) !important;
-  border: 1px solid rgba(255,255,255,0.16) !important;
-  color: #f5f5f5 !important;
+/* Inputs */
+input[type="number"], input[type="text"] , input[type="date"]{
+  background: var(--bg-3);
+  border:1px solid var(--border);
+  border-radius:12px;
+  height:44px;
+  padding:0 12px;
+  color: var(--text);
+  outline:none;
+  width:100%;
 }
+input::placeholder{ color: #9aa0aa }
 
-/* Light mode via .light-mode (explicit toggle) */
-body.light-mode {
-  background: linear-gradient(180deg, #fafafa, #f0f0f0) !important;
-  color: #111 !important;
-}
-body.light-mode header,
-body.light-mode form,
-body.light-mode #output {
-  background: rgba(255,255,255,0.92) !important;
-  border: 1px solid rgba(0,0,0,0.08) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 4px 18px rgba(0,0,0,.08) !important;
-}
-body.light-mode input,
-body.light-mode select,
-body.light-mode textarea {
-  background: rgba(255,255,255,0.98) !important;
-  border: 1px solid rgba(0,0,0,0.12) !important;
-  border-radius: 10px !important;
-  padding: 10px 12px !important;
-  font-size: 15px !important;
-  color: #111 !important;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.05) !important;
-}
-body.light-mode input::placeholder,
-body.light-mode textarea::placeholder { color: #555 !important; }
-
-/* Accent rows in light-mode */
-body.light-mode .row.accent-odev { background: #fff8d8 !important; border-left: 4px solid #c9a400 !important; color: #1a1400 !important; }
-body.light-mode .row.accent-pay { background: #e8fff4 !important; border-left: 4px solid #059669 !important; color: #053e2f !important; }
-body.light-mode .row.accent-doplatek { background: #ffecec !important; border-left: 4px solid #b91c1c !important; color: #5c0c0c !important; }
-body.light-mode .row.accent-grand { 
-  background: linear-gradient(90deg, #fff3b0, #ffe38a) !important; 
-  border-left: 5px solid #c9a400 !important; 
-  box-shadow: 0 0 14px rgba(201,164,0,.20) !important;
-  color:#1a1400 !important;
-}
-
-
-/* === LIGHT MODE TEXT FIX (v17) === */
-body.light-mode #output .row .key,
-body.light-mode #output .row .val {
-  color: #111 !important;
-}
-
-body.light-mode #output .row .key i {
-  color: #555 !important;
-}
-
-/* Accent values stronger in light */
-body.light-mode .row.accent-odev .val { color: #1d4ed8 !important; }
-body.light-mode .row.accent-pay .val { color: #047857 !important; }
-body.light-mode .row.accent-doplatek .val { color: #b91c1c !important; }
-body.light-mode .row.accent-grand .val { color: #78350f !important; }
-
-
-/* === LIGHT READABILITY BOOST (v18) === */
-/* Make output card solid white in light mode for max contrast */
-body.light-mode #output,
-@media (prefers-color-scheme: light){ body:not(.light-mode) #output { background:#ffffff !important; border:1px solid #e5e7eb !important; box-shadow: 0 6px 24px rgba(0,0,0,.06) !important; } }
-body.light-mode #output { background:#ffffff !important; border:1px solid #e5e7eb !important; box-shadow: 0 6px 24px rgba(0,0,0,.06) !important; }
-
-/* Stronger text */
-body.light-mode #output .row .key,
-body.light-mode #output .row .val { color:#0b0b0c !important; }
-@media (prefers-color-scheme: light){
-  body:not(.light-mode) #output .row .key,
-  body:not(.light-mode) #output .row .val { color:#0b0b0c !important; }
-}
-body.light-mode #output .row .key { font-weight:700 !important; }
-body.light-mode #output .row .val { font-weight:800 !important; }
-@media (prefers-color-scheme: light){
-  body:not(.light-mode) #output .row .key { font-weight:700 !important; }
-  body:not(.light-mode) #output .row .val { font-weight:800 !important; }
-}
-
-/* Icon tint darker */
-body.light-mode #output .row .key .ico,
-body.light-mode #output .row .key i { color:#444 !important; }
-@media (prefers-color-scheme: light){
-  body:not(.light-mode) #output .row .key .ico,
-  body:not(.light-mode) #output .row .key i { color:#444 !important; }
-}
-
-/* Accent backgrounds: bump contrast */
-body.light-mode .row.accent-odev { background:#fff2b3 !important; border-left-color:#b58900 !important; }
-body.light-mode .row.accent-pay { background:#d1fae5 !important; border-left-color:#047857 !important; }
-body.light-mode .row.accent-doplatek { background:#ffe0e0 !important; border-left-color:#b91c1c !important; }
-body.light-mode .row.accent-grand { background:linear-gradient(90deg,#ffe8a3,#ffd76e) !important; border-left-color:#b8860b !important; }
-@media (prefers-color-scheme: light){
-  body:not(.light-mode) .row.accent-odev { background:#fff2b3 !important; border-left-color:#b58900 !important; }
-  body:not(.light-mode) .row.accent-pay { background:#d1fae5 !important; border-left-color:#047857 !important; }
-  body:not(.light-mode) .row.accent-doplatek { background:#ffe0e0 !important; border-left-color:#b91c1c !important; }
-  body:not(.light-mode) .row.accent-grand { background:linear-gradient(90deg,#ffe8a3,#ffd76e) !important; border-left-color:#b8860b !important; }
-}
-
-/* Accent values color ensure */
-body.light-mode .row.accent-odev .val { color:#1d4ed8 !important; }
-body.light-mode .row.accent-pay .val { color:#065f46 !important; }
-body.light-mode .row.accent-doplatek .val { color:#991b1b !important; }
-body.light-mode .row.accent-grand .val { color:#0b0b0c !important; }
-@media (prefers-color-scheme: light){
-  body:not(.light-mode) .row.accent-odev .val { color:#1d4ed8 !important; }
-  body:not(.light-mode) .row.accent-pay .val { color:#065f46 !important; }
-  body:not(.light-mode) .row.accent-doplatek .val { color:#991b1b !important; }
-  body:not(.light-mode) .row.accent-grand .val { color:#0b0b0c !important; }
-}
-
-/* Slightly tighten rows */
-body.light-mode #output .row { padding:6px 10px !important; margin:6px 0 !important; }
-@media (prefers-color-scheme: light){
-  body:not(.light-mode) #output .row { padding:6px 10px !important; margin:6px 0 !important; }
-}
-
-
-/* === LIGHT MODE BUTTON FIX (v19) === */
-body.light-mode button {
-  background: #f3f4f6 !important;
-  border: 1px solid #d1d5db !important;
-  color: #111 !important;
-  font-weight: 600 !important;
-  border-radius: 999px !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08) !important;
-}
-
-body.light-mode #shareImgBtn {
-  background: linear-gradient(135deg, #0ea5e9, #3b82f6) !important;
-  border: none !important;
-  color: #fff !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 12px rgba(59,130,246,.4) !important;
-}
-
-body.light-mode button:disabled {
-  background: #f9fafb !important;
-  color: #9ca3af !important;
-  border: 1px solid #e5e7eb !important;
-  box-shadow: none !important;
-}
-
-
-/* === BLOCK SPACING FIX (v20) === */
-form { margin-bottom: 28px !important; }
-#output { margin-top: 28px !important; }
-
-
-/* === V21: MOBILE-OPTIMIZED "NEO NOIR" + ACCESSIBLE CONTRAST === */
-
-/* 0) Mobile UX foundations */
-html { -webkit-text-size-adjust: 100%; }
-body { -webkit-tap-highlight-color: transparent; }
-button, .btn { min-height: 48px !important; min-width: 44px !important; }
-input, select, textarea { min-height: 44px !important; }
-:focus-visible { outline: 2px solid rgba(99,102,241,.9); outline-offset: 2px; }
-
-/* Safe-area support (iOS notch) */
-@supports(padding: max(0px)) {
-  body { padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
-  footer, .actions { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
-}
-
-/* Reduce motion for sensitive users */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
-
-/* 1) Typography scale using clamp for mobile→desktop */
-:root {
-  --fs-base: clamp(14px, 1.6vw, 16px);
-  --fs-key: clamp(14px, 1.5vw, 16px);
-  --fs-val: clamp(15px, 1.8vw, 18px);
-  --fs-total: clamp(16px, 2vw, 20px);
-}
-#output .row .key { font-size: var(--fs-key) !important; }
-#output .row .val { font-size: var(--fs-val) !important; }
-.row.accent-grand .val { font-size: var(--fs-total) !important; }
-
-/* 2) High-contrast chips (replace pale yellow) */
-/* Odevzdání – from yellow to AMBER with dark text */
-.row.accent-odev {
-  background: linear-gradient(180deg, #f59e0b, #d97706) !important; /* amber 500→600 */
-  border: 1px solid #b45309 !important; /* amber 700 */
-  color: #111 !important;
-}
-.row.accent-odev .val { color: #111 !important; text-shadow: none !important; }
-
-/* Výplata – emerald, keep white text for contrast */
-.row.accent-pay {
-  background: linear-gradient(180deg, #10b981, #059669) !important;
-  border: 1px solid #047857 !important;
-  color: #ffffff !important;
-}
-.row.accent-pay .val { color: #ffffff !important; }
-
-/* Doplatek – ruby, white text */
-.row.accent-doplatek {
-  background: linear-gradient(180deg, #ef4444, #b91c1c) !important;
-  border: 1px solid #7f1d1d !important;
-  color: #ffffff !important;
-}
-.row.accent-doplatek .val { color: #ffffff !important; }
-
-/* Grand total – better readability: dark card with gold border */
-.row.accent-grand {
-  background: linear-gradient(180deg, #0f172a, #0b1224) !important; /* slate/indigo dark */
-  border: 2px solid #d4af37 !important; /* gold border */
-  color: #fef3c7 !important;            /* warm light text */
-  box-shadow: 0 6px 22px rgba(212,175,55,.25) !important;
-}
-.row.accent-grand .key::before { content: "👑"; margin-right: 6px; }
-.row.accent-grand .val { color: #fde68a !important; text-shadow: 0 1px 1px rgba(0,0,0,.35); }
-
-/* 3) Surfaces – Neo Noir (dark) with improved contrast */
-@media (prefers-color-scheme: dark) {
-  body { background: radial-gradient(1200px 600px at 30% -20%, rgba(255,215,0,.08), transparent), #0b0b10 !important; }
-  #output { background: #121216 !important; border: 1px solid rgba(255,255,255,.08) !important; }
-  form { background: #14141a !important; border: 1px solid rgba(255,255,255,.08) !important; }
-  #output .row .key, #output .row .val { color: #f1f5f9 !important; }
-}
-
-/* 4) Light mode readability stays solid */
-body.light-mode #output { background:#ffffff !important; border:1px solid #e5e7eb !important; }
-body.light-mode #output .row .key, 
-body.light-mode #output .row .val { color:#0b0b0c !important; }
-
-
-/* === V22: GLASS-LIGHT REDESIGN (iOS/Android premium style) — 20250829050533 === */
-
-/* Background: subtle gradient for light mode */
-body.light-mode {
-  background: linear-gradient(180deg,#f9fafb,#f3f4f6) !important;
-}
-@media (prefers-color-scheme: light) {
-  body:not(.light-mode) {
-    background: linear-gradient(180deg,#f9fafb,#f3f4f6) !important;
-  }
-}
-
-/* Panels as frosted glass */
-body.light-mode header,
-body.light-mode form,
-body.light-mode #output {
-  background: rgba(255,255,255,0.85) !important;
-  backdrop-filter: blur(14px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
-  border: 1px solid rgba(0,0,0,0.06) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05) !important;
-}
-@media (prefers-color-scheme: light) {
-  body:not(.light-mode) header,
-  body:not(.light-mode) form,
-  body:not(.light-mode) #output {
-    background: rgba(255,255,255,0.85) !important;
-    border: 1px solid rgba(0,0,0,0.06) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05) !important;
-    backdrop-filter: blur(14px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
-  }
-}
-
-/* Typography & row text in light */
-body.light-mode #output .row .key,
-body.light-mode #output .row .val { color:#0b0b0c !important; }
-@media (prefers-color-scheme: light) {
-  body:not(.light-mode) #output .row .key,
-  body:not(.light-mode) #output .row .val { color:#0b0b0c !important; }
-}
-
-/* Accent rows as inline badges instead of full bars */
-body.light-mode #output .row.accent-odev,
-body.light-mode #output .row.accent-pay,
-body.light-mode #output .row.accent-doplatek,
-body.light-mode #output .row.accent-grand {
-  background: transparent !important;
-  border:none !important;
-  box-shadow:none !important;
-  padding:6px 10px !important;
-}
-body.light-mode #output .row.accent-odev .val,
-body.light-mode #output .row.accent-pay .val,
-body.light-mode #output .row.accent-doplatek .val,
-body.light-mode #output .row.accent-grand .val {
-  display:inline-block;
-  padding:4px 10px;
-  border-radius:999px;
-  font-weight:700 !important;
-  font-size:15px !important;
-}
-
-body.light-mode .row.accent-odev .val { background:#fef3c7; color:#92400e !important; }
-body.light-mode .row.accent-pay .val { background:#d1fae5; color:#065f46 !important; }
-body.light-mode .row.accent-doplatek .val { background:#fee2e2; color:#991b1b !important; }
-body.light-mode .row.accent-grand .val {
-  background:linear-gradient(90deg,#facc15,#f59e0b) !important;
-  color:#111 !important; font-weight:800 !important; box-shadow:0 0 8px rgba(250,204,21,.35);
-}
+/* Rows / grid */
+.row{ display:grid; grid-template-columns:1fr 140px; gap:12px; align-items:center; margin:8px 0 }
+.row .unit, .suffix{ color:var(--muted); font-size:12px }
 
 /* Buttons */
-body.light-mode button {
-  border-radius:999px !important; font-weight:600 !important; min-height:48px !important;
+button, .btn{
+  height: var(--btn-h);
+  padding: 0 16px;
+  border-radius: 12px;
+  border:1px solid var(--border);
+  background: linear-gradient(180deg, #1e1f27, #14151b);
+  color:#fff;
+  font-weight:var(--fw-semibold);
+  cursor:pointer;
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
 }
-body.light-mode #shareImgBtn {
-  background:linear-gradient(135deg,#0ea5e9,#3b82f6) !important; color:#fff !important; border:none !important;
-  box-shadow: 0 4px 12px rgba(59,130,246,.35) !important;
+button:hover{ transform: translateY(-1px) }
+button:active{ transform: translateY(0) scale(.98) }
+button.primary{ background: linear-gradient(180deg, var(--gold-2), var(--gold)); color:#121217; border-color: rgba(0,0,0,.15) }
+button.secondary{ background: linear-gradient(180deg, #20222b, #15161c) }
+button.ghost{ background: transparent; border-color:var(--border); color:var(--text) }
+
+/* Icon buttons (e.g., top actions) */
+.icon-btn{ display:inline-flex; align-items:center; gap:8px; padding:0 14px }
+.icon-btn svg{ width:18px; height:18px }
+
+/* App bar (if present in markup) */
+.appbar{
+  position: sticky; top:0; z-index: 10;
+  backdrop-filter: blur(8px);
+  background: color-mix(in oklab, var(--bg-2) 70%, transparent);
+  border-bottom:1px solid var(--border);
+  padding:10px 16px; margin: -16px -16px 12px -16px; border-top-left-radius:var(--radius-lg); border-top-right-radius:var(--radius-lg);
+  display:flex; align-items:center; justify-content:space-between;
 }
-body.light-mode button:not(#shareImgBtn) {
-  background:#f3f4f6 !important; border:1px solid #d1d5db !important; color:#111 !important;
-}
-body.light-mode button:disabled {
-  background:#f9fafb !important; color:#9ca3af !important; border:1px solid #e5e7eb !important; box-shadow:none !important;
+.appbar .brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px }
+.brand-icon{ width:22px; height:22px; border-radius:6px; background: linear-gradient(135deg, var(--gold-2), var(--gold)); box-shadow: inset 0 0 0 2px rgba(0,0,0,.08) }
+.brand-text{ display:flex; flex-direction:column; line-height:1.05 }
+.brand-title{ font-size:14px }
+.brand-subtitle{ font-size:11px; color:var(--muted) }
+
+/* Output / výčetka readability */
+#output{ font-size:14px; line-height:1.3 }
+#output .line{ display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed var(--border) }
+#output .line:last-child{ border-bottom:none }
+#output .money{ font-variant-numeric:tabular-nums; font-weight:var(--fw-bold) }
+#output .accent{ color: var(--gold-2) }
+#output .muted{ color: var(--muted) }
+.row.accent, .row.total, .row.grand{ background: linear-gradient(180deg, rgba(212,175,55,.08), transparent); border-radius:12px; padding:8px 10px }
+
+/* Badges */
+.badge{ display:inline-block; padding:4px 10px; border-radius:999px; background:rgba(212,175,55,.15); color:var(--gold-2); font-weight:var(--fw-semibold); font-size:12px }
+
+/* Toggles */
+.toggle{ display:inline-grid; grid-auto-flow:column; background:var(--bg-3); border:1px solid var(--border); border-radius:999px; padding:4px; gap:4px }
+.toggle button{ height:36px; border-radius:999px; padding:0 12px; }
+.toggle .active{ background:linear-gradient(180deg, var(--gold-2), var(--gold)); color:#121217 }
+
+/* Footer/Version */
+#appVersion{ color:var(--muted); font-size:12px; text-align:center; margin-top:8px }
+
+/* Inputs alignment for mobile */
+@media (max-width:480px){
+  .row{ grid-template-columns:1fr 120px }
 }
 
-/* Extra spacing between blocks */
-form { margin-bottom: 28px !important; }
-#output { margin-top: 28px !important; }
 
 
-/* === V23: EXPLICIT DARK MODE (Neo Noir) + proper theming split === */
-/* Dark mode via body.dark-mode + fallback to system dark if no toggle */
-body.dark-mode {
-  background: radial-gradient(1200px 600px at 30% -20%, rgba(255,215,0,.06), transparent), #0b0b10 !important;
-  color: #f1f5f9 !important;
+/* === ULTRA PREMIUM v2 — hard overrides for full visual parity === */
+
+/* Backgrounds with premium vignette */
+body{
+  background:
+    radial-gradient(1200px 800px at 70% -10%, rgba(212,175,55,.10), transparent 40%),
+    radial-gradient(900px 600px at -10% 110%, rgba(58,160,255,.08), transparent 45%),
+    var(--bg);
 }
-@media (prefers-color-scheme: dark){
-  body:not(.light-mode):not(.dark-mode) {
-    background: radial-gradient(1200px 600px at 30% -20%, rgba(255,215,0,.06), transparent), #0b0b10 !important;
-    color: #f1f5f9 !important;
+
+/* Card look */
+.section, .card, .panel, .block, #output, #actions, .metrics{
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--card) 84%, transparent), color-mix(in oklab, var(--card) 96%, transparent));
+  border:1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+/* Form controls — glass */
+:where(input[type="text"], input[type="number"], input[type="date"], select, textarea){
+  appearance: none;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--bg-3) 72%, transparent), color-mix(in oklab, var(--bg-3) 92%, transparent));
+  border:1px solid var(--border);
+  border-radius:12px;
+  height:44px;
+  padding:0 12px;
+  color:var(--text);
+  outline:none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+:where(input, select, textarea):focus{
+  border-color: color-mix(in oklab, var(--gold) 45%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--gold) 20%, transparent);
+}
+:where(select){
+  padding-right: 36px !important;
+  background-image:
+    linear-gradient(180deg, transparent, transparent),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5' stroke='%23aeb2bb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* Labels and rows */
+label{ color:var(--muted); font-weight:var(--fw-semibold); }
+.row{ gap:12px; align-items:center; }
+.row .unit, .suffix{ color:var(--muted); font-size:12px }
+
+/* Buttons 1:1 */
+button, .btn{
+  height:44px; border-radius:12px; font-weight:var(--fw-semibold);
+  border:1px solid var(--border);
+  background: linear-gradient(180deg, #1e1f27, #14151b);
+  color:#fff;
+}
+button.primary{ background:linear-gradient(180deg, var(--gold-2), var(--gold)); color:#121217; border-color: rgba(0,0,0,.15) }
+button.secondary{ background:linear-gradient(180deg, #20222b, #15161c) }
+button.ghost{ background:transparent; color:var(--text) }
+
+/* Output (výčetka) — clearer lines */
+#output{ font-size:14px; line-height:1.35 }
+#output .line{ display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px dashed var(--border) }
+#output .line:last-child{ border-bottom:none }
+#output .label{ color:var(--muted) }
+#output .money{ font-variant-numeric:tabular-nums; font-weight:var(--fw-bold) }
+#output .accent{ color:var(--gold-2) }
+#output .money-blue{ color:var(--blue); font-weight:var(--fw-bold) }
+#output .money-green{ color:var(--green); font-weight:var(--fw-bold) }
+#output .money-red{ color:var(--red); font-weight:var(--fw-bold) }
+
+/* Totals highlight */
+.row.accent, .row.total, .row.grand{ 
+  background: linear-gradient(180deg, rgba(212,175,55,.08), transparent);
+  border-radius:12px; padding:8px 10px;
+}
+
+/* Light mode polish */
+@media (prefers-color-scheme: light){
+  body{
+    background:
+      radial-gradient(1200px 800px at 70% -10%, rgba(212,175,55,.15), transparent 40%),
+      radial-gradient(900px 600px at -10% 110%, rgba(58,160,255,.12), transparent 45%),
+      var(--bg);
+  }
+  :where(input[type="text"], input[type="number"], input[type="date"], select, textarea){
+    background: linear-gradient(180deg, #f9f9fb, #f2f3f7);
   }
 }
 
-/* Surfaces */
-body.dark-mode header,
-body.dark-mode form,
-body.dark-mode #output {
-  background: #121216 !important;
-  border: 1px solid rgba(255,255,255,.08) !important;
-  border-radius: 20px !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,.25) !important;
-}
-@media (prefers-color-scheme: dark){
-  body:not(.light-mode):not(.dark-mode) header,
-  body:not(.light-mode):not(.dark-mode) form,
-  body:not(.light-mode):not(.dark-mode) #output {
-    background: #121216 !important;
-    border: 1px solid rgba(255,255,255,.08) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,.25) !important;
-  }
-}
-
-/* Text */
-body.dark-mode #output .row .key,
-body.dark-mode #output .row .val { color: #f1f5f9 !important; }
-@media (prefers-color-scheme: dark){
-  body:not(.light-mode):not(.dark-mode) #output .row .key,
-  body:not(.light-mode):not(.dark-mode) #output .row .val { color: #f1f5f9 !important; }
-}
-
-/* Accent badges in dark */
-body.dark-mode .row.accent-odev .val { background:#f59e0b !important; color:#0b0b0c !important; }
-body.dark-mode .row.accent-pay .val { background:#059669 !important; color:#ffffff !important; }
-body.dark-mode .row.accent-doplatek .val { background:#b91c1c !important; color:#ffffff !important; }
-body.dark-mode .row.accent-grand .val {
-  background: linear-gradient(90deg,#facc15,#f59e0b) !important;
-  color:#111 !important; font-weight:800 !important;
-  box-shadow: 0 0 8px rgba(250,204,21,.35);
-}
-@media (prefers-color-scheme: dark){
-  body:not(.light-mode):not(.dark-mode) .row.accent-odev .val { background:#f59e0b !important; color:#0b0b0c !important; }
-  body:not(.light-mode):not(.dark-mode) .row.accent-pay .val { background:#059669 !important; color:#ffffff !important; }
-  body:not(.light-mode):not(.dark-mode) .row.accent-doplatek .val { background:#b91c1c !important; color:#ffffff !important; }
-  body:not(.light-mode):not(.dark-mode) .row.accent-grand .val {
-    background: linear-gradient(90deg,#facc15,#f59e0b) !important;
-    color:#111 !important; font-weight:800 !important;
-    box-shadow: 0 0 8px rgba(250,204,21,.35);
-  }
-}
-
-/* Buttons in dark */
-body.dark-mode button {
-  background:#1f2937 !important;
-  color:#f9fafb !important;
-  border:1px solid #374151 !important;
-  border-radius: 999px !important;
-  min-height: 48px !important;
-}
-body.dark-mode #shareImgBtn {
-  background: linear-gradient(135deg,#2563eb,#1d4ed8) !important;
-  color:#fff !important;
-  border:none !important;
-  box-shadow: 0 4px 14px rgba(29,78,216,.35) !important;
-}
-body.dark-mode button:disabled {
-  background:#111827 !important; color:#9ca3af !important; border-color:#1f2937 !important; box-shadow:none !important;
-}
-@media (prefers-color-scheme: dark){
-  body:not(.light-mode):not(.dark-mode) button {
-    background:#1f2937 !important;
-    color:#f9fafb !important;
-    border:1px solid #374151 !important;
-    border-radius: 999px !important;
-    min-height: 48px !important;
-  }
-  body:not(.light-mode):not(.dark-mode) #shareImgBtn {
-    background: linear-gradient(135deg,#2563eb,#1d4ed8) !important;
-    color:#fff !important;
-    border:none !important;
-    box-shadow: 0 4px 14px rgba(29,78,216,.35) !important;
-  }
-  body:not(.light-mode):not(.dark-mode) button:disabled {
-    background:#111827 !important; color:#9ca3af !important; border-color:#1f2937 !important; box-shadow:none !important;
-  }
-}
+/* Utility classes to force modes if needed */
+:root.light{ color-scheme: light; }
+:root.dark{ color-scheme: dark; }
