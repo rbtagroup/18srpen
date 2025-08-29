@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem(key, document.body.classList.contains("light-mode") ? "light" : "dark");
         updateThemeLabel();
         // history removed
-      });
+      };
+      themeToggle.addEventListener('click', _toggleTheme, {passive:true});
+      themeToggle.addEventListener('touchend', _toggleTheme, {passive:true});
     }
   })();
 
