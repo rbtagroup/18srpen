@@ -79,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   function updateThemeLabel(){
-  const light = document.body.classList.contains('light-mode');
-  const label = light ? 'Světlý režim' : 'Tmavý režim';
-  const emo = light ? '🌞' : '🌙';
+  const isLight = document.body.classList.contains('light-mode');
+  const label = isLight ? 'Tmavý režim' : 'Světlý režim';
+  const emo = isLight ? '🌙' : '🌞';
   const el = document.getElementById('themeToggle');
   if (el) el.innerHTML = '<span class="ico">'+emo+'</span> ' + label;
 }
