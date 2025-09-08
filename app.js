@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const kmStart = getNumber("kmStart");
       const kmEnd = getNumber("kmEnd");
       const kmReal = Math.max(0, kmEnd - kmStart);
-      const km = kmReal + invoiceKm;
+      const km = kmReal;
       const rz = getValue("rz");
       const trzba = getNumber("trzba");
       const pristavne = getNumber("pristavne");
@@ -108,15 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const kartou = getNumber("kartou");
       const fakturou = getNumber("fakturou");
       const jine = getNumber("jine");
-      // IAC/SHKM counts (only counts, no prices in driver view)
-      const iacCount = getNumber("iacCount");
-      const shkmCount = getNumber("shkmCount");
-      const IAC_KM_PER_RIDE = 33;
-      const SHKM_KM_PER_RIDE = 7;
-      const iacKm = iacCount * IAC_KM_PER_RIDE;
-      const shkmKm = shkmCount * SHKM_KM_PER_RIDE;
-      const invoiceKm = iacKm + shkmKm; // smluvní km
-
 
       const netto = trzba - pristavne;
       const minTrzba = km * MIN_TRZBA_PER_KM;
@@ -132,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // kOdevzdani set after vyplata
       const datum = new Date().toLocaleString("cs-CZ");
       
-      const smluvniRows = `<div class="row"><div class="key">Smluvní jízdy:</div><div class="val">IAC ${iacCount}× (${iacKm} km), SHKM ${shkmCount}× (${shkmKm} km)</div></div><div class="row"><div class="key">KM smluvní:</div><div class="val">${invoiceKm}</div></div>`;
       const html = `
         <div class="title"><svg class="icon"><use href="#icon-doc"/></svg> Výčetka řidiče</div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-clock"/></svg></span> Datum:</div><div class="val">${datum}</div></div>
@@ -165,9 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         html = html.replace('Výčetka řidiče</div>', 'Výčetka řidiče</div>' + hdr);
       } catch(_e) {}
 
-      let html2 = html.replace('<div class="hr"></div>', smluvniRows + '<div class="hr"></div>');
-      html2 = html2.replace('<div class="hr"></div>', smluvniRows + '<div class="hr"></div>');'
-      output.innerHTML = html2;
+      output.innerHTML = html;
 // Add accent classes to key rows based on their label text
 try {
   output.querySelectorAll('.row .key').forEach(k => {
