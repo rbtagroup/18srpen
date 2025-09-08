@@ -115,11 +115,11 @@
       <label><span class="ico">🧾</span> Jiné: <input type="number" id="jine" /></label>
 
       
-      <label><span class="ico">🏷️</span> IAC (počet jízd-nevyplňovat):
-        <input type="number" id="iacCount" min="0" step="1" inputmode="numeric" value="0" readonly />
+      <label><span class="ico">🏷️</span> IAC (počet jízd):
+        <input type="number" id="iacCount" inputmode="decimal" readonly />
       </label>
       <label><span class="ico">📏</span> IAC (km celkem):
-        <input type="number" id="iacKmTotal" value="0" readonly />
+        <input type="number" id="iacKmTotal" inputmode="decimal" readonly />
       </label>
       <div class="iac-actions">
         <button type="button" id="iacAdd">+ IAC jízda</button>
@@ -127,7 +127,7 @@
         <button type="button" id="iacClear">Vymazat IAC</button>
       </div>
       <label><span class="ico">🏷️</span> SHKM (počet jízd):
-        <input type="number" id="shkmCount" min="0" step="1" inputmode="numeric" value="0" />
+        <input type="number" id="shkmCount" inputmode="numeric" />
       </label>
 
       <div class="form-actions">

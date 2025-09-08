@@ -14,49 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // === ELEMENTS ===
   const form = document.getElementById("calcForm");
   const output = document.getElementById("output");
-  // === IAC Logger (variable km per ride) ===
   const IAC_RIDES_KEY = "IAC_RIDES_V1";
-  function loadIacRides(){
-    try{ return JSON.parse(localStorage.getItem(IAC_RIDES_KEY) || "[]").filter(n => Number(n) > 0); }
-    catch(_e){ return []; }
+  function loadIacRides(){ try{ return JSON.parse(localStorage.getItem(IAC_RIDES_KEY) || "[]").filter(n => Number(n) > 0); }catch(_e){ return []; } }
+  function saveIacRides(arr){ try{ localStorage.setItem(IAC_RIDES_KEY, JSON.stringify(arr||[])); }catch(_e){} }
+  function iacTotals(){ const arr = loadIacRides(); const total = arr.reduce((a,b)=>a+Number(b||0),0); return {count: arr.length, totalKm: total}; }
+  function updateIacUI(){ const t=iacTotals(); const c=document.getElementById("iacCount"); const k=document.getElementById("iacKmTotal"); if(c) c.value= t.count? String(t.count) : ""; if(k) k.value = t.totalKm? String(Math.round((t.totalKm+Number.EPSILON)*100)/100) : ""; }
+  function bindIacButtons(){ const add=document.getElementById("iacAdd"); const undo=document.getElementById("iacUndo"); const clear=document.getElementById("iacClear");
+    add && add.addEventListener("click", ()=>{ const v=prompt("Kolik km měla tato IAC jízda?"); if(v==null) return; const n=parseFloat(String(v).replace(",",".")); if(!isFinite(n)||n<=0){ alert("Zadej kladné číslo km."); return;} const arr=loadIacRides(); arr.push(n); saveIacRides(arr); updateIacUI(); });
+    undo && undo.addEventListener("click", ()=>{ const arr=loadIacRides(); arr.pop(); saveIacRides(arr); updateIacUI(); });
+    clear && clear.addEventListener("click", ()=>{ if(!confirm("Vymazat všechny IAC jízdy?")) return; saveIacRides([]); updateIacUI(); });
   }
-  function saveIacRides(arr){
-    try{ localStorage.setItem(IAC_RIDES_KEY, JSON.stringify(arr || [])); } catch(_e){}
-  }
-  function iacTotals(){
-    const arr = loadIacRides();
-    const total = arr.reduce((a,b)=>a + Number(b||0), 0);
-    return { count: arr.length, totalKm: total };
-  }
-  function updateIacUI(){
-    const {count, totalKm} = iacTotals();
-    const c = document.getElementById("iacCount");
-    const t = document.getElementById("iacKmTotal");
-    if (c) c.value = String(count);
-    if (t) t.value = String(Math.round((totalKm + Number.EPSILON) * 100) / 100);
-  }
-  function bindIacButtons(){
-    const add = document.getElementById("iacAdd");
-    const undo = document.getElementById("iacUndo");
-    const clear = document.getElementById("iacClear");
-    add && add.addEventListener("click", () => {
-      const v = prompt("Kolik km měla tato IAC jízda? (např. 12.5)");
-      if (v == null) return;
-      const n = parseFloat(String(v).replace(",", "."));
-      if (!isFinite(n) || n <= 0){ alert("Zadej kladné číslo km."); return; }
-      const arr = loadIacRides(); arr.push(n); saveIacRides(arr); updateIacUI();
-    });
-    undo && undo.addEventListener("click", () => {
-      const arr = loadIacRides(); arr.pop(); saveIacRides(arr); updateIacUI();
-    });
-    clear && clear.addEventListener("click", () => {
-      if (!confirm("Vymazat všechny IAC jízdy této směny?")) return;
-      saveIacRides([]); updateIacUI();
-    });
-  }
-  updateIacUI();
-  bindIacButtons();
-
+  updateIacUI(); bindIacButtons();
   const actions = document.getElementById("actions");
   const historyBox = document.getElementById("history");
   const historyList = document.getElementById("historyList") || (historyBox && historyBox.querySelector("#historyList"));
@@ -146,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const iacKmTotal = _iac.totalKm;
       const iacCount = _iac.count;
       const shkmCount = getNumber("shkmCount");
-      const invoiceKm = iacKmTotal + Math.max(0, Math.trunc(shkmCount)) * 7;
+      const invoiceKm = (iacKmTotal || 0) + Math.max(0, Math.trunc(shkmCount)) * 7;
       const km = Math.max(0, kmReal - invoiceKm);
       const rz = getValue("rz");
       const trzba = getNumber("trzba");
