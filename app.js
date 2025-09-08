@@ -14,6 +14,49 @@ document.addEventListener("DOMContentLoaded", () => {
   // === ELEMENTS ===
   const form = document.getElementById("calcForm");
   const output = document.getElementById("output");
+  // === IAC Logger (variable km per ride) ===
+  const IAC_RIDES_KEY = "IAC_RIDES_V1";
+  function loadIacRides(){
+    try{ return JSON.parse(localStorage.getItem(IAC_RIDES_KEY) || "[]").filter(n => Number(n) > 0); }
+    catch(_e){ return []; }
+  }
+  function saveIacRides(arr){
+    try{ localStorage.setItem(IAC_RIDES_KEY, JSON.stringify(arr || [])); } catch(_e){}
+  }
+  function iacTotals(){
+    const arr = loadIacRides();
+    const total = arr.reduce((a,b)=>a + Number(b||0), 0);
+    return { count: arr.length, totalKm: total };
+  }
+  function updateIacUI(){
+    const {count, totalKm} = iacTotals();
+    const c = document.getElementById("iacCount");
+    const t = document.getElementById("iacKmTotal");
+    if (c) c.value = String(count);
+    if (t) t.value = String(Math.round((totalKm + Number.EPSILON) * 100) / 100);
+  }
+  function bindIacButtons(){
+    const add = document.getElementById("iacAdd");
+    const undo = document.getElementById("iacUndo");
+    const clear = document.getElementById("iacClear");
+    add && add.addEventListener("click", () => {
+      const v = prompt("Kolik km měla tato IAC jízda? (např. 12.5)");
+      if (v == null) return;
+      const n = parseFloat(String(v).replace(",", "."));
+      if (!isFinite(n) || n <= 0){ alert("Zadej kladné číslo km."); return; }
+      const arr = loadIacRides(); arr.push(n); saveIacRides(arr); updateIacUI();
+    });
+    undo && undo.addEventListener("click", () => {
+      const arr = loadIacRides(); arr.pop(); saveIacRides(arr); updateIacUI();
+    });
+    clear && clear.addEventListener("click", () => {
+      if (!confirm("Vymazat všechny IAC jízdy této směny?")) return;
+      saveIacRides([]); updateIacUI();
+    });
+  }
+  updateIacUI();
+  bindIacButtons();
+
   const actions = document.getElementById("actions");
   const historyBox = document.getElementById("history");
   const historyList = document.getElementById("historyList") || (historyBox && historyBox.querySelector("#historyList"));
@@ -99,15 +142,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const kmStart = getNumber("kmStart");
       const kmEnd = getNumber("kmEnd");
       const kmReal = Math.max(0, kmEnd - kmStart);
-      // === IAC/SHKM smluvní km (počty → km; bez sazeb) ===
-      const iacCount = getNumber("iacCount");
+      const _iac = iacTotals();
+      const iacKmTotal = _iac.totalKm;
+      const iacCount = _iac.count;
       const shkmCount = getNumber("shkmCount");
-      const IAC_KM_PER_RIDE = 33;
-      const SHKM_KM_PER_RIDE = 7;
-      const iacKm = Math.max(0, Math.trunc(iacCount)) * IAC_KM_PER_RIDE;
-      const shkmKm = Math.max(0, Math.trunc(shkmCount)) * SHKM_KM_PER_RIDE;
-      const invoiceKm = iacKm + shkmKm; // smluvní km
-            const km = Math.max(0, kmReal - invoiceKm);
+      const invoiceKm = iacKmTotal + Math.max(0, Math.trunc(shkmCount)) * 7;
+      const km = Math.max(0, kmReal - invoiceKm);
       const rz = getValue("rz");
       const trzba = getNumber("trzba");
       const pristavne = getNumber("pristavne");
@@ -139,10 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-car"/></svg></span> RZ:</div><div class="val">${rz || "-"}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km začátek:</div><div class="val">${kmStart}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km konec:</div><div class="val">${kmEnd}</div></div>
-                <div class="row"><div class="key">Najaté km (auto):</div><div class="val">${kmReal}</div></div>
-<div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Účtované km:</div><div class="val">${km}</div></div>
+        <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Najeté km:</div><div class="val">${km}</div></div>
         <div class="hr"></div>
-        <div class="row"><div class="key">Smluvní jízdy:</div><div class="val">IAC ${iacCount}× (${iacKm} km), SHKM ${shkmCount}× (${shkmKm} km)</div></div>
+        <div class="row"><div class="key">Najaté km (auto):</div><div class="val">${kmReal}</div></div>
+        <div class="row"><div class="key">Účtované km:</div><div class="val">${km}</div></div>
+        <div class="row"><div class="key">Smluvní jízdy:</div><div class="val">IAC ${iacCount}× (${iacKmTotal} km), SHKM ${shkmCount}× (${Math.max(0, Math.trunc(shkmCount)) * 7} km)</div></div>
         <div class="row"><div class="key">KM smluvní:</div><div class="val">${invoiceKm}</div></div>
         <div class="hr"></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-cash"/></svg></span> Tržba:</div><div class="val">${trzba} Kč</div></div>
@@ -160,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Inject RZ + KM rows right after the title
       try {
         const hdr = `<div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-car"/></svg></span> RZ:</div><div class="val">${rz || "-"}</div></div>
-        <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Účtované km:</div><div class="val">${km}</div></div>
+        <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Najeté km:</div><div class="val">${km}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km začátek:</div><div class="val">${kmStart}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km konec:</div><div class="val">${kmEnd}</div></div>
         <div class="hr"></div>`;
@@ -246,7 +287,7 @@ try {
 
   if (resetBtn) resetBtn.addEventListener("click", () => {
     const keepName = document.getElementById("driverName")?.value || "";
-    form?.reset();
+    form?.reset(); saveIacRides([]); updateIacUI();
     if (keepName) document.getElementById("driverName").value = keepName;
     output?.classList.add("hidden");
     actions?.classList.add("hidden");
@@ -254,7 +295,7 @@ try {
 
   if (newShiftBtn) newShiftBtn.addEventListener("click", () => {
     const keepName = document.getElementById("driverName")?.value || "";
-    form?.reset();
+    form?.reset(); saveIacRides([]); updateIacUI();
     if (keepName) document.getElementById("driverName").value = keepName;
     const note = document.getElementById("note");
     if (note) note.value = "";

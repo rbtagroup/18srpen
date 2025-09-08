@@ -85,7 +85,7 @@
           <option value="pul">1/2 směna</option>
         </select>
       </label>
-      <label><span class="ico">🚕</span> RZ vozidla:
+      <label><span class="ico">✨</span> RZ vozidla:
         <select id="rz">
           <option value="">— vyberte RZ —</option>
           <option>1BU0299</option>
@@ -116,8 +116,16 @@
 
       
       <label><span class="ico">🏷️</span> IAC (počet jízd):
-        <input type="number" id="iacCount" min="0" step="1" inputmode="numeric" value="0" />
+        <input type="number" id="iacCount" min="0" step="1" inputmode="numeric" value="0" readonly />
       </label>
+      <label><span class="ico">📏</span> IAC (km celkem):
+        <input type="number" id="iacKmTotal" value="0" readonly />
+      </label>
+      <div class="iac-actions">
+        <button type="button" id="iacAdd">+ IAC jízda</button>
+        <button type="button" id="iacUndo">Zpět</button>
+        <button type="button" id="iacClear">Vymazat IAC</button>
+      </div>
       <label><span class="ico">🏷️</span> SHKM (počet jízd):
         <input type="number" id="shkmCount" min="0" step="1" inputmode="numeric" value="0" />
       </label>
