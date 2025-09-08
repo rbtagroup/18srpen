@@ -99,7 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const kmStart = getNumber("kmStart");
       const kmEnd = getNumber("kmEnd");
       const kmReal = Math.max(0, kmEnd - kmStart);
-      const km = kmReal;
+      // === IAC/SHKM smluvní km (počty → km; bez sazeb) ===
+      const iacCount = getNumber("iacCount");
+      const shkmCount = getNumber("shkmCount");
+      const IAC_KM_PER_RIDE = 33;
+      const SHKM_KM_PER_RIDE = 7;
+      const iacKm = Math.max(0, Math.trunc(iacCount)) * IAC_KM_PER_RIDE;
+      const shkmKm = Math.max(0, Math.trunc(shkmCount)) * SHKM_KM_PER_RIDE;
+      const invoiceKm = iacKm + shkmKm; // smluvní km
+            const km = Math.max(0, kmReal - invoiceKm);
       const rz = getValue("rz");
       const trzba = getNumber("trzba");
       const pristavne = getNumber("pristavne");
@@ -131,7 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-car"/></svg></span> RZ:</div><div class="val">${rz || "-"}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km začátek:</div><div class="val">${kmStart}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km konec:</div><div class="val">${kmEnd}</div></div>
-        <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Najeté km:</div><div class="val">${km}</div></div>
+                <div class="row"><div class="key">Najaté km (auto):</div><div class="val">${kmReal}</div></div>
+<div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Účtované km:</div><div class="val">${km}</div></div>
+        <div class="hr"></div>
+        <div class="row"><div class="key">Smluvní jízdy:</div><div class="val">IAC ${iacCount}× (${iacKm} km), SHKM ${shkmCount}× (${shkmKm} km)</div></div>
+        <div class="row"><div class="key">KM smluvní:</div><div class="val">${invoiceKm}</div></div>
         <div class="hr"></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-cash"/></svg></span> Tržba:</div><div class="val">${trzba} Kč</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-fuel"/></svg></span> Palivo:</div><div class="val">${palivo} Kč</div></div>
@@ -148,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Inject RZ + KM rows right after the title
       try {
         const hdr = `<div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-car"/></svg></span> RZ:</div><div class="val">${rz || "-"}</div></div>
-        <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Najeté km:</div><div class="val">${km}</div></div>
+        <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-road"/></svg></span> Účtované km:</div><div class="val">${km}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km začátek:</div><div class="val">${kmStart}</div></div>
         <div class="row"><div class="key"><span class="ico"><svg class="icon"><use href="#icon-flag"/></svg></span> Km konec:</div><div class="val">${kmEnd}</div></div>
         <div class="hr"></div>`;
